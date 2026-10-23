@@ -1,0 +1,61 @@
+import type { MenuProduct } from '@brooklyn/contracts'
+
+// Sample content only. Replace with the approved café catalog through menuService.
+export const demoMenu: MenuProduct[] = [
+  {
+    id: 'spanish-latte',
+    name: 'Spanish Latte',
+    description: 'Espresso, creamy milk, and a little sweetness. Your new usual.',
+    category: 'Coffee',
+    priceCentavos: 14500,
+    image: '/images/iced-latte.svg',
+    temperatures: ['Iced', 'Hot'],
+    tag: 'House favorite',
+  },
+  {
+    id: 'americano',
+    name: 'Americano',
+    description: 'Bold espresso, clean finish. Keeping the good things simple.',
+    category: 'Coffee',
+    priceCentavos: 11000,
+    image: '/images/americano.svg',
+    temperatures: ['Iced', 'Hot'],
+  },
+  {
+    id: 'cafe-latte',
+    name: 'Café Latte',
+    description: 'A smooth double shot with milk, balanced just right.',
+    category: 'Coffee',
+    priceCentavos: 13000,
+    image: '/images/latte.svg',
+    temperatures: ['Hot', 'Iced'],
+  },
+  {
+    id: 'matcha-latte',
+    name: 'Matcha Latte',
+    description: 'Earthy green tea meets creamy milk. A different kind of pick-me-up.',
+    category: 'Non-coffee',
+    priceCentavos: 15500,
+    image: '/images/matcha.svg',
+    temperatures: ['Iced', 'Hot'],
+    tag: 'A softer sip',
+  },
+  {
+    id: 'chocolate',
+    name: 'Classic Chocolate',
+    description: 'Rich cocoa and milk. A familiar comfort, any time of day.',
+    category: 'Non-coffee',
+    priceCentavos: 14000,
+    image: '/images/chocolate.svg',
+    temperatures: ['Hot', 'Iced'],
+  },
+  {
+    id: 'croissant',
+    name: 'Butter Croissant',
+    description: 'Golden, flaky, and ready to meet your favorite cup.',
+    category: 'Food & pastries',
+    priceCentavos: 9500,
+    image: '/images/croissant.svg',
+    temperatures: [],
+  },
+]

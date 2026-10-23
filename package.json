@@ -1,0 +1,28 @@
+{
+  "name": "brooklyn-warehouse",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=24 <25",
+    "npm": ">=11"
+  },
+  "scripts": {
+    "dev": "concurrently -k -n web,api -c green,blue \"npm run dev -w @brooklyn/web\" \"npm run dev -w @brooklyn/api\"",
+    "dev:web": "npm run dev -w @brooklyn/web",
+    "dev:api": "npm run dev -w @brooklyn/api",
+    "build": "npm run build --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "prettier": "^3.8.2"
+  }
+}
