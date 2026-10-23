@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { manilaDate } from '../../lib/format'
+import { manilaDate } from '../../../../shared/lib/format'
 import { validateSchedule } from './validation'
 
 describe('Manila booking schedule', () => {

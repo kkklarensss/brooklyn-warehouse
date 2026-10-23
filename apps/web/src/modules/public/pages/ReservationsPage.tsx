@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import type { FormEvent } from 'react'
 import { ArrowRight, Check, Clock3, Users } from 'lucide-react'
-import { manilaDate } from '../lib/format'
+import { manilaDate } from '../../../shared/lib/format'
 import { validateSchedule } from '../features/reservations/validation'
 
 export function ReservationsPage() {

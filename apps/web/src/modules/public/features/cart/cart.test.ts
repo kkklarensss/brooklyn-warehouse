@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { demoMenu } from '../../data/menu'
+import { demoMenu } from '../../../../shared/data/menu'
 import { addLine, cartSubtotal, MAX_QUANTITY, readCart } from './cart'
 
 describe('demo cart integrity', () => {

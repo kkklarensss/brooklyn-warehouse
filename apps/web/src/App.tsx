@@ -1,12 +1,9 @@
-import { useEffect } from 'react'
-import { BrowserRouter, Link, Route, Routes, useLocation } from 'react-router-dom'
-import { Layout } from './components/Layout'
-import { CartProvider } from './features/cart/CartProvider'
-import { HomePage } from './pages/HomePage'
-import { MenuPage } from './pages/MenuPage'
-import { ReservationsPage } from './pages/ReservationsPage'
-import { WifiPage } from './pages/WifiPage'
-import { HelpPage } from './pages/HelpPage'
+import { lazy, Suspense, useEffect } from 'react'
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
+import { PublicApp } from './modules/public/PublicApp'
+import { CartProvider } from './modules/public/features/cart/CartProvider'
+
+const AdminApp = lazy(() => import('./modules/admin/AdminApp'))
 
 function PageEffects() {
   const { pathname } = useLocation()
@@ -17,27 +14,22 @@ function PageEffects() {
       '/reservations': 'Our spaces',
       '/wifi': 'Stay connected',
       '/help': 'A little help',
+      '/admin': 'Admin · Overview',
+      '/admin/orders': 'Admin · Orders',
+      '/admin/pos': 'Admin · Point of sale',
+      '/admin/menu': 'Admin · Menu',
+      '/admin/inventory': 'Admin · Inventory',
+      '/admin/reservations': 'Admin · Reservations',
+      '/admin/staff': 'Admin · Staff & attendance',
+      '/admin/wifi': 'Admin · Wi-Fi vouchers',
+      '/admin/reports': 'Admin · Reports',
+      '/admin/content': 'Admin · Content',
+      '/admin/settings': 'Admin · Settings',
     }
-    document.title = `${titles[pathname] ?? 'Page not found'} · Brooklyn Warehouse Coffee`
+    document.title = `${titles[pathname.replace(/\/$/, '') || '/'] ?? 'Page not found'} · Brooklyn Warehouse Coffee`
     window.scrollTo({ top: 0, behavior: 'instant' })
   }, [pathname])
   return null
-}
-function NotFoundPage() {
-  return (
-    <section className="empty-state container page-section">
-      <span className="eyebrow">404 / A LITTLE DETOUR</span>
-      <h1>
-        Let's find your
-        <br />
-        <em>way back.</em>
-      </h1>
-      <p>This page isn't on the menu.</p>
-      <Link className="button button-primary" to="/">
-        Back to Brooklyn
-      </Link>
-    </section>
-  )
 }
 export default function App() {
   return (
@@ -45,14 +37,21 @@ export default function App() {
       <CartProvider>
         <PageEffects />
         <Routes>
-          <Route element={<Layout />}>
-            <Route index element={<HomePage />} />
-            <Route path="menu" element={<MenuPage />} />
-            <Route path="reservations" element={<ReservationsPage />} />
-            <Route path="wifi" element={<WifiPage />} />
-            <Route path="help" element={<HelpPage />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Route>
+          <Route
+            path="admin/*"
+            element={
+              <Suspense
+                fallback={
+                  <div className="container page-section section" role="status">
+                    Opening the café workspace…
+                  </div>
+                }
+              >
+                <AdminApp />
+              </Suspense>
+            }
+          />
+          <Route path="/*" element={<PublicApp />} />
         </Routes>
       </CartProvider>
     </BrowserRouter>

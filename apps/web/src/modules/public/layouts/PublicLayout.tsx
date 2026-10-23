@@ -6,7 +6,7 @@ import { CartDrawer } from '../features/cart/CartDrawer'
 
 const copyrightYear = new Date().getFullYear()
 
-export function Layout() {
+export function PublicLayout() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const { count, setOpen, announcement } = useCart()
   return (
@@ -109,6 +109,10 @@ export function Layout() {
             </Link>
             <Link to="/help">
               Questions? Start here
+              <ArrowUpRight size={15} />
+            </Link>
+            <Link to="/admin">
+              Admin demo workspace
               <ArrowUpRight size={15} />
             </Link>
           </div>

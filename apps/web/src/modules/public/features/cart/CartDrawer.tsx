@@ -5,7 +5,7 @@ import type { FulfillmentType } from '@brooklyn/contracts'
 import { useCart } from './CartProvider'
 import { lineKey, MAX_QUANTITY } from './cart'
 import { menuService } from '../../services/menuService'
-import { formatMoney } from '../../lib/format'
+import { formatMoney } from '../../../../shared/lib/format'
 
 export function CartDrawer() {
   const { isOpen, setOpen, lines, subtotal, count, changeQuantity, remove } = useCart()

@@ -1,5 +1,5 @@
 import type { MenuProduct } from '@brooklyn/contracts'
-import { demoMenu } from '../data/menu'
+import { demoMenu } from '../../../shared/data/menu'
 
 // Single replacement point for the future GET /api/v1/catalog call.
 export const menuService = {

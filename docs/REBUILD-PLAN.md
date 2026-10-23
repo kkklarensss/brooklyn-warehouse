@@ -59,8 +59,9 @@ All business actions go through the Node API. Browsers do not connect directly t
 
 | Repository path | Responsibility |
 | --- | --- |
-| `apps/web/src/features/` | Customer and operations features, pages, components, API hooks. |
-| `apps/web/src/components/` | Shared UI components and layouts. |
+| `apps/web/src/modules/public/` | Customer pages, layout, components, cart/reservation features, and services. |
+| `apps/web/src/modules/admin/` | Admin pages, layout, components, demo state, and reporting helpers. |
+| `apps/web/src/shared/` | Data and utilities used by both frontend modules. |
 | `apps/api/src/modules/` | Identity, catalog, orders, payments, inventory, reservations, attendance, Wi-Fi, promotions, reports, support. |
 | `apps/api/src/modules/<module>/` | Routes, validation, services, repositories, authorization policies, and tests as needed. |
 | `apps/api/src/jobs/` | Worker entry point, outbox handlers, scheduled reconciliation. |

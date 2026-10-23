@@ -33,3 +33,17 @@ Browser interaction checks used Chromium 134.0.6998.35, a 1440 × 1000 desktop v
 Desktop home, mobile home, and desktop reservation layouts were visually inspected. These checks do not establish live payment, booking availability, database, authentication, or MikroTik integration; those features are outside this milestone. Windows, Safari, and real captive-browser behavior remain to be tested on target devices.
 
 The temporary browser runner and internal screenshots are not shipped in the source archive. Repeat the interaction checklist above after changes; the domain tests run with `npm test`.
+
+## Admin frontend verification
+
+The admin workspace addition was checked on 23 October 2026:
+
+- Workspace type checking, lint, production build, formatting, and `git diff --check` passed.
+- `npm test`: 22 tests passed across 3 files, including 13 new admin workflow cases.
+- The new cases cover POS-to-completed-sales flow, historical price preservation, invalid quantities/variants, unavailable products, order transition constraints, cancellation totals, stock-in validation, overlapping booking approvals, CSV formula escaping, and resetting shared state.
+- A temporary Vite SSR smoke check rendered all 11 admin routes and the admin missing-page route with their expected content and shared navigation.
+- The development server returned the application shell for `/admin`.
+
+The browser tools reported no available browser during this addition. Desktop/mobile visual inspection and end-to-end browser interactions for the admin area remain unverified; SSR rendering is not a substitute for those checks. The customer browser results above describe the earlier customer milestone.
+
+For manual verification, open `/admin` at desktop and mobile widths, create a hot/iced POS order, advance it through the queue, and compare completed totals with reports. Change a product price and availability, restock a low ingredient, review a booking, toggle attendance, issue/revoke a voucher, export the sales CSV, create/publish a demo draft, and save/reset preferences. Confirm that the mobile navigation opens/closes, keyboard focus remains visible, unknown admin paths show the admin 404 page, and the customer footer links to the workspace.

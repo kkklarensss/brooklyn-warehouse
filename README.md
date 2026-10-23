@@ -22,6 +22,7 @@ npm run dev
 ```
 
 - Web: http://localhost:5173
+- Admin demo: http://localhost:5173/admin (also linked in the customer footer)
 - API health check: http://localhost:3000/api/v1/health
 - Frontend only: `npm run dev:web`
 - Backend only: `npm run dev:api`
@@ -30,14 +31,14 @@ The Vite development server proxies `/api` to the local API. Optional local back
 
 ## Workspace
 
-| Folder               | Purpose                                               |
-| -------------------- | ----------------------------------------------------- |
-| `apps/web`           | React customer interface and future staff/admin views |
-| `apps/api`           | Express API; health endpoint only at this milestone   |
-| `apps/portal`        | Future router-compatible captive portal               |
-| `packages/contracts` | Shared TypeScript domain types                        |
-| `packages/database`  | Future MySQL schema, migrations, seeds                |
-| `docs`               | Architecture, development notes, rebuild plan         |
+| Folder               | Purpose                                             |
+| -------------------- | --------------------------------------------------- |
+| `apps/web`           | React customer interface and admin demo workspace   |
+| `apps/api`           | Express API; health endpoint only at this milestone |
+| `apps/portal`        | Future router-compatible captive portal             |
+| `packages/contracts` | Shared TypeScript domain types                      |
+| `packages/database`  | Future MySQL schema, migrations, seeds              |
+| `docs`               | Architecture, development notes, rebuild plan       |
 
 ## Checks
 

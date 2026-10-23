@@ -1,4 +1,4 @@
-import { manilaDate } from '../../lib/format'
+import { manilaDate } from '../../../../shared/lib/format'
 
 export function validateSchedule(date: string, time: string, now = new Date()): string | null {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || !/^\d{2}:\d{2}$/.test(time))

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { ArrowUpRight, Plus } from 'lucide-react'
 import type { DrinkTemperature, MenuProduct } from '@brooklyn/contracts'
-import { formatMoney } from '../lib/format'
+import { formatMoney } from '../../../shared/lib/format'
 import { useCart } from '../features/cart/CartProvider'
 
 export function ProductCard({ product }: { product: MenuProduct }) {
